@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+import 'package:my_astro/screen/chat_screen.dart';
+import 'package:my_astro/screen/home_screen.dart';
+import 'package:my_astro/screen/login_screen.dart';
+import 'package:my_astro/screen/otp_screen.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: HomeScreen(),
+    );
+  }
+}

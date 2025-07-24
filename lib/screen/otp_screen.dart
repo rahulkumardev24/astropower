@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:my_astro/widgets/my_text_button.dart';
 import 'package:pinput/pinput.dart';
 
+import '../api/msg91_api_service.dart';
+
 class OtpScreen extends StatefulWidget {
   final String number;
   const OtpScreen({super.key, required this.number});
@@ -127,7 +129,35 @@ class _OtpScreenState extends State<OtpScreen> {
 
               SizedBox(
                 width: size.width,
-                child: MyTextButton(btnText: "SUBMIT", onPressed: () {}),
+                child: MyTextButton(
+                  btnText: "SUBMIT",
+                  onPressed: () async {
+                    if (otpCode.isEmpty || otpCode.length != 6) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Please enter 6-digit OTP"),
+                        ),
+                      );
+                      return;
+                    }
+
+                    final success = await Msg91Service.verifyOtp(
+                      widget.number,
+                      otpCode,
+                    );
+
+                    if (success) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("OTP Verified ✅")),
+                      );
+                      // TODO: Navigate to Home Screen or Dashboard
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Invalid OTP ❌")),
+                      );
+                    }
+                  },
+                ),
               ),
 
               SizedBox(height: size.height * 0.02),
@@ -154,8 +184,24 @@ class _OtpScreenState extends State<OtpScreen> {
                           child: MyTextButton(
                             btnText: "Resend OTP on SMS",
                             textSize: 14,
-                            onPressed: () {
-                              startTimer();
+                            onPressed: () async {
+                              final success = await Msg91Service.sendOtp(
+                                widget.number,
+                              );
+                              if (success) {
+                                startTimer();
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text("OTP Resent Successfully"),
+                                  ),
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text("Failed to resend OTP"),
+                                  ),
+                                );
+                              }
                             },
                           ),
                         )

@@ -4,12 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../api/msg91_api_service.dart';
 import 'otp_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-  //  https://astropower.org/privacy-policy
-  // https://astropower.org/terms-condition
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -20,6 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController phoneNumberController = TextEditingController();
 
   Future<void> _launchUrl(String url) async {
+    
     try {
       final uri = Uri.parse(url);
       if (!await canLaunchUrl(uri)) {
@@ -155,25 +155,36 @@ class _LoginScreenState extends State<LoginScreen> {
                           SizedBox(
                             width: mqData.width,
                             child: ElevatedButton(
-                              onPressed: () {
-                                final phone = phoneNumberController.text.trim();
-                                if (phone.isEmpty || phone.length != 10) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text(
-                                        "Please enter a valid 10-digit phone number",
+                                onPressed: () async {
+                                  final phone = phoneNumberController.text.trim();
+                                  if (phone.isEmpty || phone.length != 10) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text("Please enter a valid 10-digit phone number"),
                                       ),
-                                    ),
-                                  );
-                                  return;
-                                }
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => OtpScreen(number: phone,),
-                                  ),
-                                );
-                              },
+                                    );
+                                    return;
+                                  }
+
+                                  // Call MSG91 API
+                                  final success = await Msg91Service.sendOtp(phone);
+
+                                  if (success) {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) => OtpScreen(number: phone),
+                                      ),
+                                    );
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text("Failed to send OTP. Try again."),
+                                      ),
+                                    );
+                                  }
+                                },
+
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.black,
                                 shape: RoundedRectangleBorder(

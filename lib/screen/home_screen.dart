@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_astro/widgets/search_box.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,6 +17,58 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           flexibleSpace: _appBar(size),
         ),
+
+        /// ---- body ---- ////
+        body: Column(
+          children: [
+            /// here we call search box
+            SearchBox(),
+          ],
+        ),
+
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(left: 27.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: FloatingActionButton.extended(
+                  elevation: 0,
+                  backgroundColor: Color(0xff001080),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(27),
+                  ),
+                  onPressed: () {},
+                  label: Text(
+                    "Chat with Astrologer",
+                    style: TextStyle(color: Colors.white),
+                  ),
+
+                  icon: Icon(CupertinoIcons.chat_bubble, color: Colors.white),
+                ),
+              ),
+
+              SizedBox(width: size.width * 0.05),
+
+              Expanded(
+                child: FloatingActionButton.extended(
+                  elevation: 0,
+                  onPressed: () {},
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(27),
+                  ),
+                  label: Text(
+                    "Talk to Astrologer",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  icon: Icon(Icons.call),
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        /// floating action  button
       ),
     );
   }

@@ -55,7 +55,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
     // Initialize the options map with required fields
     Map<String, dynamic> options = {
-      'key': 'rzp_live_e4tQB3fHe9N7Ww',
+      'key': '',
       // Amount in paise
       'amount': (totalAmount.round() * 100),
       'name': 'Astropower Recharge',

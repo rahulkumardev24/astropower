@@ -24,7 +24,7 @@ class RazorpayService {
     required String email,
   }) {
     var options = {
-      'key': 'rzp_live_e4tQB3fHe9N7Ww',
+      'key': '',
       'amount': amount * 100,
       'name': 'Astropower Recharge',
       'description': 'Wallet Top-up',

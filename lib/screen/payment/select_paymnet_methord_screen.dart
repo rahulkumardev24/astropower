@@ -53,9 +53,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
     double gst = widget.amount * 0.18;
     double totalAmount = widget.amount + gst;
 
-    var options = {
+    // Initialize the options map with required fields
+    Map<String, dynamic> options = {
       'key': 'rzp_live_e4tQB3fHe9N7Ww',
-      'amount': totalAmount.round() * 100, // in paise
+      // Amount in paise
+      'amount': (totalAmount.round() * 100),
       'name': 'Astropower Recharge',
       'description': 'Wallet Top-up',
       'prefill': {
@@ -65,10 +67,27 @@ class _PaymentScreenState extends State<PaymentScreen> {
       'theme': {'color': '#FF4081'},
     };
 
+    // Handle UPI app selection
+    if (_selectedUpiApp != null) {
+      options['method'] = 'upi';
+      options['upi'] = {'app': _selectedUpiApp!.toLowerCase()};
+    }
+    // Handle other payment methods
+    else if (_selectedPaymentMethod != null) {
+      options['method'] = _selectedPaymentMethod;
+      if (_selectedPaymentMethod == 'wallet') {
+        // Specify wallet if needed, e.g., 'paytm' for Paytm wallet
+        options['wallet'] = 'paytm'; // Adjust based on supported wallets
+      }
+    }
+
     try {
       _razorpay.open(options);
     } catch (e) {
       debugPrint("Error: $e");
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Error initiating payment: $e")));
     }
   }
 
@@ -128,19 +147,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 ),
               ],
             ),
-
             const SizedBox(height: 20),
             const Divider(thickness: 1),
-
             const SizedBox(height: 20),
-
-
             const Text(
               "Pay with UPI apps",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-
             Row(
               children: [
                 _upiOption(
@@ -153,19 +167,18 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 _upiOption(
                   imagePath: "lib/assets/image/paytm_logo.png",
                   title: "Paytm",
-                  method: "Paytm",
+                  method: "paytm",
                   size: size,
                 ),
                 SizedBox(width: size.width * 0.05),
                 _upiOption(
                   imagePath: "lib/assets/image/phone_pay_logo.png",
                   title: "PhonePe",
-                  method: "Phonepe",
+                  method: "phonepe",
                   size: size,
                 ),
               ],
             ),
-
             const SizedBox(height: 20),
             const Divider(thickness: 1),
             const SizedBox(height: 20),
@@ -174,7 +187,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-
             _paymentMethodTile(
               imagePath: "lib/assets/image/Paytm_logo_.png",
               title: "UPI",
@@ -195,7 +207,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
               title: "Wallets",
               method: "wallet",
             ),
-
             const SizedBox(height: 5),
             const Row(
               children: [
@@ -208,7 +219,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ],
             ),
             const SizedBox(height: 30),
-
             ElevatedButton(
               onPressed: _openCheckout,
               style: ElevatedButton.styleFrom(
@@ -219,12 +229,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   borderRadius: BorderRadius.circular(11),
                 ),
               ),
-              child: Text(
+              child: const Text(
                 "Proceed to pay",
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           ],

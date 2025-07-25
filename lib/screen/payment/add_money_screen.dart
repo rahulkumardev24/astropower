@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_astro/screen/payment/payment_info_screen.dart';
+import 'package:my_astro/screen/payment/select_paymnet_methord_screen.dart';
 
 class AddMoneyScreen extends StatefulWidget {
   const AddMoneyScreen({super.key});
@@ -10,7 +10,7 @@ class AddMoneyScreen extends StatefulWidget {
 }
 
 class _AddMoneyScreenState extends State<AddMoneyScreen> {
-  /// recharge option data
+  /// Recharge options data
   final List<Map<String, dynamic>> rechargeOptions = [
     {"amount": 50, "extra": "Get 2% Extra"},
     {"amount": 100, "extra": "Get 2% Extra"},
@@ -29,18 +29,21 @@ class _AddMoneyScreenState extends State<AddMoneyScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return SafeArea(
       child: Scaffold(
-        /// aapBar
-        appBar: AppBar(title: Text("Add Money to wallet"), centerTitle: true),
+        appBar: AppBar(
+          title: const Text("Add Money to Wallet"),
+          centerTitle: true,
+        ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Available Balance", style: TextStyle(fontSize: 21)),
+              const Text("Available Balance", style: TextStyle(fontSize: 21)),
               Row(
-                children: [
+                children: const [
                   Icon(Icons.currency_rupee_rounded, size: 27),
                   Text(
                     "1000",
@@ -50,27 +53,28 @@ class _AddMoneyScreenState extends State<AddMoneyScreen> {
               ),
               SizedBox(height: size.height * 0.02),
 
+              /// Recharge Grid
               GridView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: rechargeOptions.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 8,
                   childAspectRatio: 5 / 4.5,
                 ),
                 itemBuilder: (context, index) {
-                  final amountOptions = rechargeOptions[index];
+                  final amountOption = rechargeOptions[index];
+
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder:
-                              (_) => PaymentInfoScreen(
-                                amount: amountOptions["amount"],
-                              ),
+                          builder: (_) => PaymentInfoScreen(
+                            amount: amountOption["amount"],
+                          ),
                         ),
                       );
                     },
@@ -78,7 +82,6 @@ class _AddMoneyScreenState extends State<AddMoneyScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
-                          width: 1,
                           color: Colors.grey.shade500,
                         ),
                       ),
@@ -87,31 +90,25 @@ class _AddMoneyScreenState extends State<AddMoneyScreen> {
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-
                             children: [
-                              /// icon
-                              Icon(Icons.currency_rupee_rounded),
-
-                              /// amount
+                              const Icon(Icons.currency_rupee_rounded),
                               Text(
-                                "${amountOptions["amount"]}",
-                                style: TextStyle(
+                                "${amountOption["amount"]}",
+                                style: const TextStyle(
                                   fontSize: 21,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
                           ),
-
                           Positioned(
                             bottom: 0,
                             left: 0,
                             right: 0,
-
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.green.withAlpha(40),
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                   bottomRight: Radius.circular(11),
                                   bottomLeft: Radius.circular(11),
                                 ),
@@ -120,8 +117,8 @@ class _AddMoneyScreenState extends State<AddMoneyScreen> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(4.0),
                                   child: Text(
-                                    "${amountOptions['extra']}",
-                                    style: TextStyle(
+                                    amountOption['extra'],
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.green,
                                       fontSize: 14,

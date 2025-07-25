@@ -24,17 +24,16 @@ class RazorpayService {
     required String email,
   }) {
     var options = {
-      'key': 'enter your API KEY',
+      'key': 'rzp_live_e4tQB3fHe9N7Ww',
       'amount': amount * 100,
       'name': 'Astropower Recharge',
       'description': 'Wallet Top-up',
-      'prefill': {
-        'contact': contact,
-        'email': email,
+      'theme': {'color': '#FF4081'},
+      'method': {'upi': true,
+        'card': true,
+        'netbanking': true ,
+
       },
-      'external': {
-        'wallets': ['paytm']
-      }
     };
 
     try {

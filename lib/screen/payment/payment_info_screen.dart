@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_astro/screen/payment/select_paymnet_methord_screen.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 import '../../api/razorpay_service.dart';
@@ -12,53 +13,6 @@ class PaymentInfoScreen extends StatefulWidget {
 }
 
 class _PaymentInfoScreenState extends State<PaymentInfoScreen> {
-  final RazorpayService _razorpayService = RazorpayService();
-
-  @override
-  void initState() {
-    super.initState();
-    _razorpayService.initRazorpay(
-      onSuccess: _handlePaymentSuccess,
-      onError: _handlePaymentError,
-      onExternalWallet: _handleExternalWallet,
-    );
-  }
-
-  @override
-  void dispose() {
-    _razorpayService.dispose();
-    super.dispose();
-  }
-
-  void _handlePaymentSuccess(PaymentSuccessResponse response) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Payment Successful: ${response.paymentId}")),
-    );
-  }
-
-  void _handlePaymentError(PaymentFailureResponse response) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Payment Failed: ${response.message}")),
-    );
-  }
-
-  void _handleExternalWallet(ExternalWalletResponse response) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("External Wallet: ${response.walletName}")),
-    );
-  }
-
-  void _startPayment() {
-    double gst = (widget.amount * 0.18);
-    double totalPayable = widget.amount + gst;
-
-    _razorpayService.openCheckout(
-      amount: totalPayable.round(),
-      contact: '7970989057',
-      email: 'rkrahulroy151617@hmail.com ',
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     /// Gst Find
@@ -176,7 +130,14 @@ class _PaymentInfoScreenState extends State<PaymentInfoScreen> {
                   ),
                 ),
                 onPressed: () {
-                  _startPayment();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (_) =>
+                              PaymentScreen(amount: widget.amount),
+                    ),
+                  );
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 14),

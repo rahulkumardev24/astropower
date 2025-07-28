@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:my_astro/helper/my_dialog.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class PaymentScreen extends StatefulWidget {
   final int amount;
-  const PaymentScreen({super.key, required this.amount});
+  final String cashBackAmount;
+  const PaymentScreen({
+    super.key,
+    required this.amount,
+    required this.cashBackAmount,
+  });
 
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();
@@ -17,6 +23,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      MyDialog().offerDialog(
+        offers: widget.cashBackAmount,
+        context: context,
+        rechargeAmount: widget.amount,
+      );
+    });
     _razorpay = Razorpay();
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
@@ -53,10 +66,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
     double gst = widget.amount * 0.18;
     double totalAmount = widget.amount + gst;
 
-    // Initialize the options map with required fields
+    /// Initialize the options map with required fields
     Map<String, dynamic> options = {
       'key': 'rzp_live_e4tQB3fHe9N7Ww',
-      // Amount in paise
+
+      /// Amount in paise
       'amount': (totalAmount.round() * 100),
       'name': 'Astropower Recharge',
       'description': 'Wallet Top-up',
@@ -72,12 +86,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
       options['method'] = 'upi';
       options['upi'] = {'app': _selectedUpiApp!.toLowerCase()};
     }
-    // Handle other payment methods
+    /// Handle other payment methods
     else if (_selectedPaymentMethod != null) {
       options['method'] = _selectedPaymentMethod;
       if (_selectedPaymentMethod == 'wallet') {
-        // Specify wallet if needed, e.g., 'paytm' for Paytm wallet
-        options['wallet'] = 'paytm'; // Adjust based on supported wallets
+        /// Specify wallet if needed, e.g., 'paytm' for Paytm wallet
+        options['wallet'] = 'paytm';
       }
     }
 
@@ -155,6 +169,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
+
+            /// ALL UIP Options
             Row(
               children: [
                 _upiOption(
@@ -187,6 +203,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
+
+            /// OTHER PAYMENT Options
             _paymentMethodTile(
               imagePath: "lib/assets/image/Paytm_logo_.png",
               title: "UPI",
@@ -219,6 +237,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ],
             ),
             const SizedBox(height: 30),
+
+            /// --- Proceed To Pay Button --- ///
             ElevatedButton(
               onPressed: _openCheckout,
               style: ElevatedButton.styleFrom(
@@ -239,6 +259,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
       ),
     );
   }
+
+  /// --- Custom Widgets --- ///
 
   Widget _upiOption({
     required String imagePath,

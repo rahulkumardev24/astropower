@@ -66,28 +66,58 @@ class _AddMoneyScreenState extends State<AddMoneyScreen> {
                 ),
                 itemBuilder: (context, index) {
                   final amountOption = rechargeOptions[index];
+                  final isPopular = amountOption["amount"] == 500;
 
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => PaymentInfoScreen(
-                            amount: amountOption["amount"],
-                          ),
+                          builder:
+                              (_) => PaymentInfoScreen(
+                                amount: amountOption["amount"],
+                              ),
                         ),
                       );
                     },
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: Colors.grey.shade500,
-                        ),
+                        border: Border.all(color: Colors.grey.shade500),
                       ),
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
+                          if (isPopular)
+                            Positioned(
+                              top: 6,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                decoration: BoxDecoration(
+                                  color: Colors.orangeAccent,
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: const [
+                                      Icon(Icons.star, size: 14, color: Colors.white),
+                                      SizedBox(width: 4),
+                                      Text(
+                                        "Most Popular",
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+
+
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_astro/screen/payment/select_paymnet_methord_screen.dart';
-import 'package:razorpay_flutter/razorpay_flutter.dart';
-
-import '../../api/razorpay_service.dart';
 
 class PaymentInfoScreen extends StatefulWidget {
   final int amount;
-  const PaymentInfoScreen({super.key, required this.amount});
+  const PaymentInfoScreen({
+    super.key,
+    required this.amount,
+  });
 
   @override
   State<PaymentInfoScreen> createState() => _PaymentInfoScreenState();
@@ -133,9 +133,7 @@ class _PaymentInfoScreenState extends State<PaymentInfoScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder:
-                          (_) =>
-                              PaymentScreen(amount: widget.amount),
+                      builder: (_) => PaymentScreen(amount: widget.amount, cashBackAmount: cashback.toString(),),
                     ),
                   );
                 },

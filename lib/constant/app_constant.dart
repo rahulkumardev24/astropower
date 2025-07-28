@@ -117,4 +117,21 @@ class AppConstant {
       "title": "Finance",
     },
   ];
+
+  static List<Map<String, dynamic>> remediesData = [
+    {"image": "lib/assets/image/vip piija rem.webp", "title": "VIP E-Pooja"},
+    {
+      "image": "lib/assets/image/sawan special.webp",
+      "title": "Sawan Special Remedies",
+    },
+    {"image": "lib/assets/image/rakhi_rem.jpg", "title": "Siddh Rakhi"},
+    {
+      "image": "lib/assets/image/kashi siddh rudra rem.webp",
+      "title": "Kashi Siddh Rudraksha",
+    },
+    {"image": "lib/assets/image/rehu-ketu transit rem.webp", "title": "Rahu-Ketu Transit Remedies"},
+    {"image": "lib/assets/image/gemstone rem.webp", "title": "Gemstone"},
+    {"image": "lib/assets/image/murti.webp", "title": "Murti"},
+    {"image": "lib/assets/image/face reading.webp", "title": "Face Reading"},
+  ];
 }

@@ -3,6 +3,7 @@ import 'package:my_astro/screen/chat_screen.dart';
 import 'package:my_astro/screen/home_screen.dart';
 import 'package:my_astro/screen/login_screen.dart';
 import 'package:my_astro/screen/payment/add_money_screen.dart';
+import 'package:my_astro/screen/remedies/remedies_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: AddMoneyScreen(),
+      home: RemediesScreen(),
     );
   }
 }

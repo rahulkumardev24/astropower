@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class MyDialog {
-  void offerDialog({
+ static  void offerDialog({
     required BuildContext context,
     required String offers,
     required rechargeAmount,

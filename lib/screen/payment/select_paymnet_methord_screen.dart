@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
+import '../../helper/my_dialog.dart';
 
 class PaymentScreen extends StatefulWidget {
   final int amount;
-  const PaymentScreen({super.key, required this.amount});
+  final String cashBackAmount;
+  const PaymentScreen({
+    super.key,
+    required this.amount,
+    required this.cashBackAmount,
+  });
 
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();
@@ -17,6 +23,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   void initState() {
     super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      MyDialog.offerDialog(
+        context: context,
+        rechargeAmount: widget.amount,
+        offers: widget.cashBackAmount,
+      );
+    });
     _razorpay = Razorpay();
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);

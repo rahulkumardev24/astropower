@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_astro/screen/remedies/murti_screen.dart';
 import 'package:my_astro/screen/remedies/vip_e_pooja_screen.dart';
 import '../../constant/app_constant.dart';
 import '../../widgets/remedies_carousel_slider.dart';
@@ -106,6 +107,11 @@ class _RemediesScreenState extends State<RemediesScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (_) => VipEPoojaScreen()),
+            );
+          case "Murti":
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => MurtiScreen()),
             );
         }
       },

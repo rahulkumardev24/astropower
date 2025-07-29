@@ -45,7 +45,7 @@ class _VipEPoojaScreenState extends State<VipEPoojaScreen> {
                   crossAxisCount: 2,
                   mainAxisSpacing: 4,
                   crossAxisSpacing: 4,
-                  childAspectRatio: 0.60,
+                  childAspectRatio: 0.68,
                 ),
                 itemBuilder: (context, index) {
                   final vipPoojaData = AppConstant.vipEPoojaData[index];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_astro/screen/remedies/murti_details_screen.dart';
 import 'package:my_astro/widgets/remedy_item_card.dart';
 
 import '../../constant/app_constant.dart';
@@ -15,19 +16,19 @@ class _VipEPoojaScreenState extends State<MurtiScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: Text("Murti") ,
-      actions: [
-        Icon(Icons.shopping_cart_outlined) ,
-        SizedBox(width: 12,),
-        Icon(Icons.search) ,
-        SizedBox(width: 12,)
-
-      ],
+      appBar: AppBar(
+        title: Text("Murti"),
+        actions: [
+          Icon(Icons.shopping_cart_outlined),
+          SizedBox(width: 12),
+          Icon(Icons.search),
+          SizedBox(width: 12),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-                  /// --- vip pooja --- ///
+            /// --- vip pooja --- ///
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: GridView.builder(
@@ -46,6 +47,21 @@ class _VipEPoojaScreenState extends State<MurtiScreen> {
                     imagePath: murtiData['imagePath'],
                     title: murtiData['murtiName'],
                     price: murtiData['price'],
+                    onCardTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (_) => MurtiDetailsScreen(
+                                imagePath: murtiData['imagePath'],
+                                title: murtiData['murtiName'],
+                                subTitle1: murtiData['subTitle1'],
+                                subTitle2: murtiData['subTitle2'],
+                              ),
+                        ),
+                      );
+                    },
+                    onBookTap: () {},
                   );
                 },
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:my_astro/screen/chat_screen.dart';
 import 'package:my_astro/screen/home_screen.dart';
 import 'package:my_astro/screen/login_screen.dart';
@@ -15,13 +16,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.pinkAccent,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
       ),
-      home: RemediesScreen(),
+      child: MaterialApp(
+        title: 'Fact fuel',
+        debugShowCheckedModeBanner: false,
+        home: RemediesScreen(),
+      ),
     );
   }
-}
+  }
+

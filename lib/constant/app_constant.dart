@@ -196,41 +196,56 @@ class AppConstant {
       "imagePath": "lib/assets/remedies/shiv_shakti_murti.jpg",
       "murtiName": "Shiv Shakti Murti",
       "price": "899",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
+
     },
 
     {
       "imagePath": "lib/assets/remedies/ayodhya_ram_lalla_murti_10_cm.jpg",
       "murtiName": "Ayodhya Ram Lalla Murti 10 cm",
       "price": "999",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
     {
       "imagePath": "lib/assets/remedies/Bajrangbali_murti.jpg",
       "murtiName": "Bajrangbali Murti",
       "price": "1299",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
       "imagePath": "lib/assets/remedies/blue_meditating_buddha_ji_murti.jpg",
       "murtiName": "Blue Meditating Buddha Ji Murti",
       "price": "799",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
       "imagePath": "lib/assets/remedies/brass_ganesh_ji_murti.jpg",
       "murtiName": "Brass Ganesh Ji Murti",
       "price": "799",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
       "imagePath": "lib/assets/remedies/brass_shiva_lingam_murti.jpg",
       "murtiName": "Brass Shiva Lingam Murti",
       "price": "999",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
       "imagePath": "lib/assets/remedies/meditating_buddha_murti.jpg",
       "murtiName": "Meditating Buddha Murti",
       "price": "599",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
@@ -238,6 +253,8 @@ class AppConstant {
           "lib/assets/remedies/red_&_golden_ganesh_ji_murti_riddhi_siddhi_roop.jpg",
       "murtiName": "Red & Golden Ganesh Ji Murti Riddhi Siddhi Roop",
       "price": "1299",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
@@ -245,47 +262,63 @@ class AppConstant {
           "lib/assets/remedies/sankat_mochan_hanuman_ji_murti_in_meditative_pose.jpg",
       "murtiName": "Sankat Mochan Hanuman Ji Murti In Meditative Pose",
       "price": "899",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
       "imagePath": "lib/assets/remedies/sharti_bal_hanuman_murti.jpg",
       "murtiName": "Sharti Bal Hanuman Murti",
       "price": "799",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
       "imagePath": "lib/assets/remedies/shati_bal_hanuman.jpg",
       "murtiName": "Shati Bal Hanuman",
       "price": "899",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
     {
       "imagePath": "lib/assets/remedies/shiv_shakti_murti.jpg",
       "murtiName": "Shiv Shakti Murti",
       "price": "999",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
       "imagePath": "lib/assets/remedies/shiva_shakti_trishul.jpg",
       "murtiName": "Shiva Shakti Trishul",
       "price": "1299",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
       "imagePath": "lib/assets/remedies/shree_siddhivinyak_ganesh_ji_murti.jpg",
       "murtiName": "Shree Siddhivinyak Ganesh Ji Murti",
       "price": "599",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
       "imagePath": "lib/assets/remedies/swarna_ganpati_murti.jpg",
       "murtiName": "Swarna Ganesh Murti",
       "price": "899",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
 
     {
       "imagePath": "lib/assets/remedies/trinetra_shiv_murti.jpg",
       "murtiName": "Trinetra Shiv Murti",
       "price": "1299",
+      "subTitle1": "Authentic Murti Design",
+      "subTitle2": "High-Quality photopolymer Resin & Glass",
     },
   ];
 }

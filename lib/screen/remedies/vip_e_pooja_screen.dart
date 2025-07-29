@@ -53,6 +53,8 @@ class _VipEPoojaScreenState extends State<VipEPoojaScreen> {
                     imagePath: vipPoojaData['imagePath'],
                     title: vipPoojaData['poojaName'],
                     price: vipPoojaData['price'],
+                    onBookTap: (){},
+                    onCardTap: (){},
                   );
                 },
               ),

@@ -134,4 +134,58 @@ class AppConstant {
     {"image": "lib/assets/image/murti.webp", "title": "Murti"},
     {"image": "lib/assets/image/face reading.webp", "title": "Face Reading"},
   ];
+
+  static List<Map<String,dynamic>> vipEPoojaData = [
+    {
+      "imagePath" : "lib/assets/remedies/shani_grah_shanti_pooja.jpg" ,
+      "poojaName" : "Shani Grah Shanti Pooja" ,
+      "price" :  "661" ,
+    },
+    {
+      "imagePath" : "lib/assets/remedies/snataan_prapti_pooja.jpg" ,
+      "poojaName" : "Snataan Prapti Pooja" ,
+      "price" :  "1281" ,
+    },
+    {
+      "imagePath" : "lib/assets/remedies/vivah_badha_nivaran_pooja.jpg" ,
+      "poojaName" : "Vivah Badha Nivarana Pooja" ,
+      "price" :  "661" ,
+    },
+    {
+      "imagePath" : "lib/assets/remedies/dhan_akarshan_lakshmi_pooja.jpg" ,
+      "poojaName" : "Dhan Aksharan Lakshmi Pooja" ,
+      "price" :  "1050" ,
+    },
+    {
+      "imagePath" : "lib/assets/remedies/kaal_jadoo_nivaran_pooja.jpg" ,
+      "poojaName" : "Kaal Jadoo Nivarana Pooja" ,
+      "price" :  "661" ,
+    },
+    {
+      "imagePath" : "lib/assets/remedies/kaal_sarp_dosh_nivaran_pooja.jpg" ,
+      "poojaName" : "Kaal Sarp Dosh Nivarana Pooja" ,
+      "price" :  "661" ,
+    },
+    {
+      "imagePath" : "lib/assets/remedies/maha_rudrabhishek_pooja.jpg" ,
+      "poojaName" : "Maha Rudrabhishek Pooja" ,
+      "price" :  "661" ,
+    },
+    {
+      "imagePath" : "lib/assets/remedies/mangal_dosh_nivaran_pooja.jpg" ,
+      "poojaName" : "Mangal Dosh Nivarana Pooja" ,
+      "price" :  "1081" ,
+    },
+    {
+      "imagePath" : "lib/assets/remedies/rahu_&_ketu_graha_shanti_pooja.jpg" ,
+      "poojaName" : "Rahu & Ketu Graha Shanti Pooja" ,
+      "price" :  "1100" ,
+    },
+    {
+      "imagePath" : "lib/assets/remedies/special_pooja_for_relationships.jpg" ,
+      "poojaName" : "Special Pooja for Relationships" ,
+      "price" :  "1100" ,
+    },
+  ];
+
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_astro/screen/remedies/vip_e_pooja_screen.dart';
 import '../../constant/app_constant.dart';
 import '../../widgets/remedies_carousel_slider.dart';
 
@@ -99,8 +100,14 @@ class _RemediesScreenState extends State<RemediesScreen> {
 
   Widget _remediesCard({required String imagePath, required String title}) {
     return GestureDetector(
-      onTap: (){
-
+      onTap: () {
+        switch (title) {
+          case "VIP E-Pooja":
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => VipEPoojaScreen()),
+            );
+        }
       },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
@@ -132,12 +139,12 @@ class _RemediesScreenState extends State<RemediesScreen> {
                     color: Colors.white,
                     shadows: [
                       BoxShadow(
-                        color: Colors.black ,
-                        blurRadius: 2 ,
-                        offset: Offset(1.0, 2.0) ,
-                        spreadRadius: 2
-                      )
-                    ]
+                        color: Colors.black,
+                        blurRadius: 2,
+                        offset: Offset(1.0, 2.0),
+                        spreadRadius: 2,
+                      ),
+                    ],
                   ),
                   textAlign: TextAlign.center,
                 ),

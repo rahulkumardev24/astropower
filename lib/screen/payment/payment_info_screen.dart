@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_astro/screen/payment/select_paymnet_methord_screen.dart';
+import 'package:my_astro/screen/payment/select_payment_method_screen.dart';
 
 class PaymentInfoScreen extends StatefulWidget {
   final int amount;
-  const PaymentInfoScreen({
-    super.key,
-    required this.amount,
-  });
+  const PaymentInfoScreen({super.key, required this.amount});
 
   @override
   State<PaymentInfoScreen> createState() => _PaymentInfoScreenState();
@@ -133,7 +130,13 @@ class _PaymentInfoScreenState extends State<PaymentInfoScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => PaymentScreen(amount: widget.amount, cashBackAmount: cashback.toString(),),
+                      builder:
+                          (_) => SelectPaymentMethodScreen(
+                            amount: widget.amount,
+                            cashBackAmount: cashback.toString(),
+                            dialogTitle:
+                                "Get ₹$cashback extra cash on recharge of ${widget.amount}.",
+                          ),
                     ),
                   );
                 },

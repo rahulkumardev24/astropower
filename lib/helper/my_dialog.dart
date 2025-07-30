@@ -4,8 +4,7 @@ import 'package:lottie/lottie.dart';
 class MyDialog {
  static  void offerDialog({
     required BuildContext context,
-    required String offers,
-    required rechargeAmount,
+    required String title
   }) {
     showDialog(
       context: context,
@@ -18,6 +17,7 @@ class MyDialog {
           child: SizedBox(
             height: 350,
             child: Stack(
+              alignment: Alignment.center,
               children: [
                 /// Background Lottie animation
                 Positioned.fill(
@@ -35,6 +35,7 @@ class MyDialog {
                   padding: const EdgeInsets.all(20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text("🎉", style: TextStyle(fontSize: 50)),
                       const Text(
@@ -47,7 +48,7 @@ class MyDialog {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        "Get ₹$offers extra on recharge of ₹$rechargeAmount!",
+                        title,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 21,

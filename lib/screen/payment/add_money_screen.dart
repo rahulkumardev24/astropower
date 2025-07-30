@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_astro/screen/payment/payment_info_screen.dart';
-import 'package:my_astro/screen/payment/select_paymnet_methord_screen.dart';
 
 class AddMoneyScreen extends StatefulWidget {
   const AddMoneyScreen({super.key});

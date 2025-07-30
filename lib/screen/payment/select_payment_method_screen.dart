@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import '../../helper/my_dialog.dart';
 
-class PaymentScreen extends StatefulWidget {
+class SelectPaymentMethodScreen extends StatefulWidget {
   final int amount;
-  final String cashBackAmount;
-  const PaymentScreen({
+  final String? cashBackAmount;
+  final String dialogTitle;
+  const SelectPaymentMethodScreen({
     super.key,
     required this.amount,
-    required this.cashBackAmount,
+    this.cashBackAmount,
+    required this.dialogTitle,
   });
 
   @override
-  State<PaymentScreen> createState() => _PaymentScreenState();
+  State<SelectPaymentMethodScreen> createState() => _PaymentScreenState();
 }
 
-class _PaymentScreenState extends State<PaymentScreen> {
+class _PaymentScreenState extends State<SelectPaymentMethodScreen> {
   late Razorpay _razorpay;
   String? _selectedUpiApp;
   String? _selectedPaymentMethod;
@@ -23,13 +25,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   void initState() {
     super.initState();
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      MyDialog.offerDialog(
-        context: context,
-        rechargeAmount: widget.amount,
-        offers: widget.cashBackAmount,
-      );
+      MyDialog.offerDialog(context: context, title: widget.dialogTitle);
     });
     _razorpay = Razorpay();
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);

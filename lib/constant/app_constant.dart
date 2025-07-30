@@ -198,7 +198,8 @@ class AppConstant {
       "price": "899",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
-
+      "description":
+          "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -207,6 +208,8 @@ class AppConstant {
       "price": "999",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
     {
       "imagePath": "lib/assets/remedies/Bajrangbali_murti.jpg",
@@ -214,6 +217,8 @@ class AppConstant {
       "price": "1299",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -222,6 +227,8 @@ class AppConstant {
       "price": "799",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -230,6 +237,8 @@ class AppConstant {
       "price": "799",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -238,6 +247,8 @@ class AppConstant {
       "price": "999",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -246,6 +257,8 @@ class AppConstant {
       "price": "599",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -255,6 +268,8 @@ class AppConstant {
       "price": "1299",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -264,6 +279,8 @@ class AppConstant {
       "price": "899",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -272,6 +289,8 @@ class AppConstant {
       "price": "799",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -280,6 +299,8 @@ class AppConstant {
       "price": "899",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
     {
       "imagePath": "lib/assets/remedies/shiv_shakti_murti.jpg",
@@ -287,6 +308,8 @@ class AppConstant {
       "price": "999",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -295,6 +318,8 @@ class AppConstant {
       "price": "1299",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+      "description":
+      "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -303,6 +328,8 @@ class AppConstant {
       "price": "599",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+        "description":
+          "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -311,6 +338,8 @@ class AppConstant {
       "price": "899",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+        "description":
+          "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
 
     {
@@ -319,6 +348,37 @@ class AppConstant {
       "price": "1299",
       "subTitle1": "Authentic Murti Design",
       "subTitle2": "High-Quality photopolymer Resin & Glass",
+        "description":
+          "Discover the divine story of Lord Hanuman, the epitome of strength, devotion, and selfless service. Known as Bajrangbali, Anjaneya, and Maruti, Hanuman is one of the most beloved deities in Hinduism. From his miraculous birth to his legendary role in the Ramayana — finding Sita, defeating demons, and bringing the Sanjeevani herb — Hanuman's devotion to Lord Rama stands as a timeless symbol of true bhakti.Worshipped for courage, protection, and wisdom, Lord Hanuman continues to inspire millions with his unmatched loyalty and strength. This video explores his divine qualities, symbolism, and the spiritual power of chanting the Hanuman Chalisa.",
     },
   ];
+
+
+ static List<Map<String, String>> faqQuestin = const [
+    {
+      'title': 'What are the benefits?',
+      'content': 'Benefits include improved clarity, energy, and positivity.'
+    },
+    {
+      'title': 'How to place?',
+      'content': 'Place it in your living room or workspace facing east.'
+    },
+    {
+      'title': 'Best day to place',
+      'content': 'It is best to place on a Thursday or full moon day.'
+    },
+    {
+      'title': 'Packaging',
+      'content': 'Secure packaging with eco-friendly and tamper-proof materials.'
+    },
+    {
+      'title': 'What is the Return & Exchange Policy?',
+      'content': 'Returns are accepted within 7 days with original packaging.'
+    },
+    {
+      'title': 'Disclaimer',
+      'content': 'The information provided is for spiritual support only.'
+    },
+  ];
+
 }

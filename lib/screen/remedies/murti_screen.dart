@@ -57,6 +57,8 @@ class _VipEPoojaScreenState extends State<MurtiScreen> {
                                 title: murtiData['murtiName'],
                                 subTitle1: murtiData['subTitle1'],
                                 subTitle2: murtiData['subTitle2'],
+                                description: murtiData['description'],
+                                price: murtiData['price'],
                               ),
                         ),
                       );

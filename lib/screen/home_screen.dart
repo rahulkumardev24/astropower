@@ -2,23 +2,32 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_astro/helper/my_dialog.dart';
 import 'package:my_astro/screen/payment/add_money_screen.dart';
+import 'package:my_astro/widgets/app_drawer.dart';
 import 'package:my_astro/widgets/search_box.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        key: _scaffoldKey,
         // app bar
         /// --- app bar --- ///
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
-          flexibleSpace: _appBar(context, size),
+          flexibleSpace: _appBar(size),
         ),
+        drawer: AppDrawer(),
 
         /// ---- body ---- ////
         body: Column(
@@ -76,7 +85,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   /// --- app bar widget --- ///
-  Widget _appBar(BuildContext context, Size size) {
+  Widget _appBar(Size size) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6),
       child: SizedBox(
@@ -85,14 +94,19 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(Icons.menu, size: 27),
+            InkWell(
+              onTap: () => _scaffoldKey.currentState!.openDrawer(),
+              child: Icon(Icons.menu, size: 27),
+            ),
             const SizedBox(width: 8),
+
             Text(
               "Astropower",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             Expanded(child: SizedBox(width: size.width)),
 
+            /// wallet
             InkWell(
               onTap: () {
                 Navigator.push(
@@ -104,13 +118,14 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(width: 12),
 
+            /// language selection
             InkWell(
-
-              onTap: ()=>
-                MyDialog.languageDialog(context)
-              ,
-                child: Icon(Icons.translate_rounded, size: 27)),
+              onTap: () => MyDialog.languageDialog(context),
+              child: Icon(Icons.translate_rounded, size: 27),
+            ),
             SizedBox(width: 12),
+
+            /// Notifications
             Icon(Icons.notifications, size: 27),
           ],
         ),

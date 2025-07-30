@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_astro/screen/remedies/murti_screen.dart';
 import 'package:my_astro/screen/remedies/vip_e_pooja_screen.dart';
+import 'package:my_astro/widgets/app_drawer.dart';
 import '../../constant/app_constant.dart';
 import '../../widgets/remedies_carousel_slider.dart';
 
@@ -12,12 +13,15 @@ class RemediesScreen extends StatefulWidget {
 }
 
 class _RemediesScreenState extends State<RemediesScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return SafeArea(
       child: Scaffold(
+        key: _scaffoldKey,
+        drawer: AppDrawer(),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
@@ -58,14 +62,17 @@ class _RemediesScreenState extends State<RemediesScreen> {
 
   Widget _appBar(Size size) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6),
+      padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 6),
       child: SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(Icons.menu, size: 27),
+            InkWell(
+              onTap: () => _scaffoldKey.currentState!.openDrawer(),
+              child: const Icon(Icons.menu, size: 27),
+            ),
             const SizedBox(width: 8),
             const Text("AstroRemedy", style: TextStyle(fontSize: 18)),
             const Spacer(),

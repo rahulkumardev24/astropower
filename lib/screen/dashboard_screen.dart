@@ -35,7 +35,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             _currentIndex = index;
           });
         },
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.black87,
         unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(

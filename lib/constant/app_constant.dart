@@ -381,4 +381,15 @@ class AppConstant {
     },
   ];
 
+
+  static List<Map<String, String>> languages = [
+    {'code': 'ENG', 'label': 'English'},
+    {'code': 'हिंदी', 'label': 'Hindi'},
+    {'code': 'ਪੰਜਾਬੀ', 'label': 'Punjabi'},
+    {'code': 'मराठी', 'label': 'Marathi'},
+    {'code': 'తెలుగు', 'label': 'Telugu'},
+    {'code': 'ಕನ್ನಡ', 'label': 'Kannada'},
+    {'code': 'বাংলা', 'label': 'Bengali'},
+  ];
+
 }

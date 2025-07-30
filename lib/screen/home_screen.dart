@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_astro/helper/my_dialog.dart';
 import 'package:my_astro/screen/payment/add_money_screen.dart';
 import 'package:my_astro/widgets/search_box.dart';
 
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
-          flexibleSpace: _appBar(context , size),
+          flexibleSpace: _appBar(context, size),
         ),
 
         /// ---- body ---- ////
@@ -75,7 +76,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   /// --- app bar widget --- ///
-  Widget _appBar( BuildContext context , Size size) {
+  Widget _appBar(BuildContext context, Size size) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6),
       child: SizedBox(
@@ -93,14 +94,22 @@ class HomeScreen extends StatelessWidget {
             Expanded(child: SizedBox(width: size.width)),
 
             InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (_)=>AddMoneyScreen()));
-
-                },
-                child: Icon(Icons.account_balance_wallet_outlined, size: 27)),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => AddMoneyScreen()),
+                );
+              },
+              child: Icon(Icons.account_balance_wallet_outlined, size: 27),
+            ),
             SizedBox(width: 12),
 
-            Icon(Icons.translate_rounded, size: 27),
+            InkWell(
+
+              onTap: ()=>
+                MyDialog.languageDialog(context)
+              ,
+                child: Icon(Icons.translate_rounded, size: 27)),
             SizedBox(width: 12),
             Icon(Icons.notifications, size: 27),
           ],

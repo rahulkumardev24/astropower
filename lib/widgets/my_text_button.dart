@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 class MyTextButton extends StatelessWidget {
   final String btnText;
   final VoidCallback onPressed;
-  final double textSize ;
+  final double textSize;
+  final Color? backGroundColor;
   const MyTextButton({
     super.key,
     required this.btnText,
     required this.onPressed,
-    this.textSize = 18
+    this.textSize = 18,
+    this.backGroundColor = Colors.pinkAccent,
   });
 
   @override
@@ -18,7 +20,7 @@ class MyTextButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        backgroundColor: Colors.red,
+        backgroundColor: backGroundColor,
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 12.0),

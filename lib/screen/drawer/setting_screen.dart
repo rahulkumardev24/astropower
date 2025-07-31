@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:my_astro/helper/custom_text_style.dart';
 import 'package:my_astro/helper/my_dialog.dart';
+import 'package:my_astro/widgets/simple_text_fill_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -17,13 +19,125 @@ class _SettingScreenState extends State<SettingScreen> {
   final _astroMallChatController = ValueNotifier<bool>(true);
   final _liveEventsController = ValueNotifier<bool>(true);
 
+  void _showPrivacyBottomSheet(BuildContext context, Size size) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(21),
+          topRight: Radius.circular(21),
+        ),
+      ),
+      isScrollControlled: true,
+      builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              /// Header
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "lib/assets/image/3d-lock.png",
+                    height: size.height * 0.03,
+                    width: size.height * 0.03,
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    "Manage Your Privacy!",
+                    style: myTextStyle21(fontWeight: FontWeight.w900),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 21),
+
+              /// Privacy Items
+              _bottomPrivacyItem(
+                imagePath: 'lib/assets/image/chat (6).png',
+                title:
+                    'Restrict astrologers from accessing your chat after the chat ends',
+                size: size,
+              ),
+              const SizedBox(height: 16),
+              _bottomPrivacyItem(
+                imagePath: 'lib/assets/image/download (1).png',
+                title:
+                    'Restrict astrologers from downloading the images you shared',
+                size: size,
+              ),
+              const SizedBox(height: 16),
+              _bottomPrivacyItem(
+                imagePath: 'lib/assets/image/qr-code.png',
+                title:
+                    'Restrict astrologers from taking screenshots of your chat',
+                size: size,
+              ),
+              const SizedBox(height: 16),
+              _bottomPrivacyItem(
+                imagePath: 'lib/assets/image/mobile.png',
+                title:
+                    'Restrict astrologers from accessing your call recording',
+                size: size,
+              ),
+              const SizedBox(height: 24),
+
+              /// Bottom Buttons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: SimpleTextFillButton(
+                      btnText: "SKIP",
+                      onPressed: () => Navigator.pop(context),
+                      backGroundColor: Colors.grey.shade300,
+                      foregroundColor: Colors.black,
+                    ),
+                  ),
+                  SizedBox(width: size.width * 0.1),
+                  Expanded(
+                    child: SimpleTextFillButton(
+                      btnText: "SUBMIT",
+                      onPressed: () => Navigator.pop(context),
+                      backGroundColor: Colors.pinkAccent,
+                      foregroundColor: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 21),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> _launchUrl(String url) async {
+    try {
+      final uri = Uri.parse(url);
+      if (!await canLaunchUrl(uri)) {
+        throw 'Could not launch $url';
+      }
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Could not open the link: $e")));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       /// --- Appbar --- ///
       appBar: AppBar(
         backgroundColor: Colors.white,
-
         title: Text(
           "Settings",
           style: myTextStyle21(
@@ -32,7 +146,6 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
         ),
       ),
-
       backgroundColor: Colors.grey.shade100,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -290,10 +403,21 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
 
             /// other setting
-            _otherSetting(title: "Manage Your Privacy!", onTap: () {}),
+            _otherSetting(
+              title: "Manage Your Privacy!",
+              onTap: () {
+                _showPrivacyBottomSheet(context, MediaQuery.of(context).size);
+              },
+            ),
             _otherSetting(title: "Notifications", onTap: () {}),
-            _otherSetting(title: "Terms and Conditions", onTap: () {}),
-            _otherSetting(title: "Privacy Policy", onTap: () {}),
+            _otherSetting(
+              title: "Terms and Conditions",
+              onTap: () => _launchUrl("https://astropower.org/privacy-policy"),
+            ),
+            _otherSetting(
+              title: "Privacy Policy",
+              onTap: () => _launchUrl("https://astropower.org/privacy-policy"),
+            ),
 
             _accountCard(
               icon: Icons.logout,
@@ -360,6 +484,42 @@ class _SettingScreenState extends State<SettingScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _bottomPrivacyItem({
+    required String imagePath,
+    required String title,
+    required Size size,
+  }) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image.asset(
+          imagePath,
+          width: size.height * 0.04,
+          height: size.height * 0.04,
+          fit: BoxFit.cover,
+        ),
+        SizedBox(width: size.width * 0.015),
+        Expanded(
+          child: Text(
+            title,
+            style: myTextStyle12(
+              textColor: Colors.black87,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+        const SizedBox(width: 4),
+        AdvancedSwitch(
+          activeColor: Colors.teal,
+          inactiveColor: Colors.grey.shade300,
+          controller: ValueNotifier<bool>(true),
+          width: 36,
+          height: 20,
+        ),
+      ],
     );
   }
 }

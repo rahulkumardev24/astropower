@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_astro/constant/app_constant.dart';
 import 'package:my_astro/widgets/carousel_slider.dart';
 import '../widgets/astro_chat_card.dart';
+import '../widgets/sort_filter_bottom_sheet.dart';
 import '../widgets/tab_card.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -140,7 +141,25 @@ class _ChatScreenState extends State<ChatScreen> {
 
             Icon(CupertinoIcons.search, size: 27),
             SizedBox(width: 12),
-            Icon(Icons.filter_alt_rounded, size: 27),
+
+            /// filter icon
+            InkWell(
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  backgroundColor:
+                      Colors.transparent, // Optional: for rounded corners
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(20),
+                    ),
+                  ),
+                  builder: (context) => const SortFilterBottomSheet(),
+                );
+              },
+              child: Icon(Icons.filter_alt_rounded, size: 27),
+            ),
           ],
         ),
       ),

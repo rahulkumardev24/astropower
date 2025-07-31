@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_astro/screen/chat_screen.dart';
 import 'package:my_astro/screen/dashboard_screen.dart';
+import 'package:my_astro/screen/drawer/setting_screen.dart';
 import 'package:my_astro/screen/home_screen.dart';
 import 'package:my_astro/screen/login_screen.dart';
 import 'package:my_astro/screen/payment/add_money_screen.dart';

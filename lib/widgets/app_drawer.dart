@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_astro/screen/drawer/setting_screen.dart';
 import '../helper/custom_text_style.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -72,47 +73,79 @@ class _MyDrawerState extends State<AppDrawer> {
             SizedBox(height: mqData.height * 0.01),
 
             /// list view
-            SizedBox(
-              height: mqData.height * 0.65,
+            Expanded(
               child: ListView(
                 padding: EdgeInsets.zero,
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   /// list part
-                  _drawerItem(title: 'Home', icon: Icons.home_filled),
+                  _drawerItem(
+                    title: 'Home',
+                    icon: Icons.home_filled,
+                    onTap: () {},
+                  ),
                   _drawerItem(
                     title: 'Book a Pooja',
                     icon: Icons.grass_outlined,
+                    onTap: () {},
                   ),
                   _drawerItem(
                     title: 'Customer Support chat',
                     icon: Icons.support_agent_rounded,
+                    onTap: () {},
                   ),
                   _drawerItem(
                     title: 'Wallet Transactions',
                     icon: Icons.account_balance_wallet_outlined,
+                    onTap: () {},
                   ),
                   _drawerItem(
                     title: 'Redeem Gift Card',
                     icon: Icons.card_giftcard_rounded,
+                    onTap: () {},
                   ),
-                  _drawerItem(title: 'Order History', icon: Icons.history),
-                  _drawerItem(title: 'AstroRemedy', icon: Icons.store_rounded),
-                  _drawerItem(title: 'Astrology Blog', icon: Icons.book),
+                  _drawerItem(
+                    title: 'Order History',
+                    icon: Icons.history,
+                    onTap: () {},
+                  ),
+                  _drawerItem(
+                    title: 'AstroRemedy',
+                    icon: Icons.store_rounded,
+                    onTap: () {},
+                  ),
+                  _drawerItem(
+                    title: 'Astrology Blog',
+                    icon: Icons.book,
+                    onTap: () {},
+                  ),
                   _drawerItem(
                     title: 'Chat with Astrologers',
                     icon: Icons.chat_bubble_outline_rounded,
+                    onTap: () {},
                   ),
-                  _drawerItem(title: 'AstroRemedy', icon: Icons.store_rounded),
+                  _drawerItem(
+                    title: 'AstroRemedy',
+                    icon: Icons.store_rounded,
+                    onTap: () {},
+                  ),
                   _drawerItem(
                     title: 'My Following',
                     icon: Icons.person_search_rounded,
+                    onTap: () {},
                   ),
                   _drawerItem(
                     title: 'Free Service',
                     icon: Icons.local_offer_outlined,
+                    onTap: () {},
                   ),
-                  _drawerItem(title: 'Setting', icon: Icons.settings),
+                  _drawerItem(
+                    title: 'Setting',
+                    icon: Icons.settings,
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_)=>SettingScreen()));
+                    },
+                  ),
                 ],
               ),
             ),
@@ -131,14 +164,12 @@ class _MyDrawerState extends State<AppDrawer> {
               padding: const EdgeInsets.only(left: 12.0),
               child: Row(
                 children: [
-                  _socialMedia(imagePath:"lib/assets/icon/apple.png" ),
-                  _socialMedia(imagePath:"lib/assets/icon/globe.png" ),
-                  _socialMedia(imagePath:"lib/assets/icon/youtube (3).png" ),
-                  _socialMedia(imagePath:"lib/assets/icon/facebook (3).png" ),
-                  _socialMedia(imagePath:"lib/assets/icon/instagram (4).png" ),
-                  _socialMedia(imagePath:"lib/assets/icon/linkedin (5).png" ),
-
-
+                  _socialMedia(imagePath: "lib/assets/icon/apple.png"),
+                  _socialMedia(imagePath: "lib/assets/icon/globe.png"),
+                  _socialMedia(imagePath: "lib/assets/icon/youtube (3).png"),
+                  _socialMedia(imagePath: "lib/assets/icon/facebook (3).png"),
+                  _socialMedia(imagePath: "lib/assets/icon/instagram (4).png"),
+                  _socialMedia(imagePath: "lib/assets/icon/linkedin (5).png"),
                 ],
               ),
             ),
@@ -153,7 +184,8 @@ class _MyDrawerState extends State<AppDrawer> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: mqData.height * 0.01),
+
+            SizedBox(height: 11),
           ],
         ),
       ),
@@ -161,12 +193,16 @@ class _MyDrawerState extends State<AppDrawer> {
   }
 
   /// Widgets
-  Widget _drawerItem({required String title, required IconData icon}) {
+  Widget _drawerItem({
+    required String title,
+    required IconData icon,
+    required Function() onTap,
+  }) {
     return ListTile(
       visualDensity: VisualDensity(vertical: -4),
-      title: Text(title, style: myTextStyle15()),
-      leading: Icon(icon),
-      onTap: () => Navigator.pop(context),
+      title: Text(title, style: myTextStyle15(textColor: Colors.grey.shade600)),
+      leading: Icon(icon , color: Colors.grey.shade600,),
+      onTap: onTap,
     );
   }
 

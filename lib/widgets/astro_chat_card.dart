@@ -84,9 +84,8 @@ class _AstroChatCardState extends State<AstroChatCard> {
                             Text(
                               widget.name,
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
                                 color: Colors.black,
-                                fontSize: 18,
+                                fontSize: 14,
                               ),
                             ),
 

@@ -111,10 +111,7 @@ class _ChatScreenState extends State<ChatScreen> {
           children: [
             Icon(Icons.menu, size: 27),
             const SizedBox(width: 8),
-            Text(
-              "Chat with Astrologer",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
+            Text("Chat with Astrologer", style: TextStyle(fontSize: 14)),
             Expanded(child: SizedBox(width: size.width)),
 
             /// Rupee Box
@@ -206,8 +203,8 @@ class _ChatScreenState extends State<ChatScreen> {
                             Text(
                               "Chat for FREE",
                               style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w900,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
 

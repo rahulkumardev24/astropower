@@ -34,6 +34,55 @@ class _SortFilterBottomSheetState extends State<SortFilterBottomSheet> {
     "Rating: High to Low",
   ];
 
+  final List<String> skillOptions = [
+    "Face Reading",
+    "Kp",
+    "Life Coach",
+    "Nadi",
+    "Numerology",
+    "Palmistry",
+    "Prashana",
+    "Psynchic",
+    "Psychologist",
+    "Tarot",
+    "Vastu",
+    "Vedic",
+  ];
+
+  final List<String> languageOptions = [
+    "English",
+    "Hindi",
+    "Bengali",
+    "Gujarati",
+    "Kannada",
+    "Malayalam",
+    "Marathi",
+    "Punjabi",
+    "Tamil",
+    "Telugu",
+    "Urdu",
+  ];
+
+  final List<String> genderOptions = ["Male", "Female", "Other"];
+  final List<String> countryOptions = ["India", "Outside India"];
+  final List<String> offerOptions = ["Active", "Not Active"];
+  final List<String> topAstroOptions = [
+    "Celebrity",
+    "Top Choice",
+    "Rising Star",
+    "All",
+  ];
+
+  /// Store multiple selected indexes for each category
+  final Map<int, Set<int>> selectedCheckboxes = {
+    1: <int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11},
+    2: <int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+    3: <int>{0, 1, 2},
+    4: <int>{0, 1},
+    5: <int>{0, 1},
+    6: <int>{0, 1, 2, 3},
+  };
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -98,33 +147,68 @@ class _SortFilterBottomSheetState extends State<SortFilterBottomSheet> {
 
                 VerticalDivider(thickness: 1.5, color: Colors.grey.shade300),
 
-                /// Right radio list
+                /// Right dynamic list
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4),
                     child: ListView.builder(
-                      itemCount: sortOptions.length,
+                      itemCount: getCurrentOptions().length,
                       itemBuilder: (context, index) {
-                        return RadioListTile<int>(
-                          contentPadding: EdgeInsets.zero,
-                          value: index,
-                          groupValue: selectedRadioIndex,
-                          activeColor: Colors.black,
+                        final option = getCurrentOptions()[index];
 
-                          /// title
-                          title: Text(
-                            sortOptions[index],
-                            style: myTextStyle12(
-                              textColor: Colors.grey.shade600,
-                              fontWeight: FontWeight.bold,
+                        if (selectedCategoryIndex == 0) {
+                          /// Radio List Tile for "Sort by"
+                          return RadioListTile<int>(
+                            contentPadding: EdgeInsets.zero,
+                            value: index,
+                            groupValue: selectedRadioIndex,
+                            activeColor: Colors.black,
+                            title: Text(
+                              option,
+                              style: myTextStyle12(
+                                textColor: Colors.grey.shade600,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          onChanged: (val) {
-                            setState(() {
-                              selectedRadioIndex = val!;
-                            });
-                          },
-                        );
+                            onChanged: (val) {
+                              setState(() {
+                                selectedRadioIndex = val!;
+                              });
+                            },
+                          );
+                        } else {
+                          /// CheckboxListTile for other filters
+                          final isChecked =
+                              selectedCheckboxes[selectedCategoryIndex]!
+                                  .contains(index);
+                          return CheckboxListTile(
+                            checkboxShape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            contentPadding: EdgeInsets.zero,
+                            controlAffinity: ListTileControlAffinity.leading,
+                            value: isChecked,
+                            activeColor: Colors.black87,
+                            title: Text(
+                              option,
+                              style: myTextStyle12(
+                                textColor: Colors.grey.shade600,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            onChanged: (val) {
+                              setState(() {
+                                if (val == true) {
+                                  selectedCheckboxes[selectedCategoryIndex]!
+                                      .add(index);
+                                } else {
+                                  selectedCheckboxes[selectedCategoryIndex]!
+                                      .remove(index);
+                                }
+                              });
+                            },
+                          );
+                        }
                       },
                     ),
                   ),
@@ -132,8 +216,11 @@ class _SortFilterBottomSheetState extends State<SortFilterBottomSheet> {
               ],
             ),
           ),
+
           Divider(thickness: 1.5, color: Colors.grey.shade300),
           SizedBox(height: size.height * 0.01),
+
+          /// Apply Button
           Align(
             alignment: Alignment.centerRight,
             child: Padding(
@@ -157,5 +244,26 @@ class _SortFilterBottomSheetState extends State<SortFilterBottomSheet> {
         ],
       ),
     );
+  }
+
+  List<String> getCurrentOptions() {
+    switch (selectedCategoryIndex) {
+      case 0:
+        return sortOptions;
+      case 1:
+        return skillOptions;
+      case 2:
+        return languageOptions;
+      case 3:
+        return genderOptions;
+      case 4:
+        return countryOptions;
+      case 5:
+        return offerOptions;
+      case 6:
+        return topAstroOptions;
+      default:
+        return [];
+    }
   }
 }

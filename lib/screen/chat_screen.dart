@@ -117,7 +117,7 @@ class _ChatScreenState extends State<ChatScreen> {
             /// Rupee Box
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(6),
                 border: Border.all(width: 2, color: Colors.black54),
                 color: Colors.transparent,
               ),

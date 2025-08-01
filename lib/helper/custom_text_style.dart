@@ -43,6 +43,20 @@ TextStyle myTextStyle15({
   );
 }
 
+/// size 16
+TextStyle myTextStyle16({
+  String fontFamily = "primary",
+  Color textColor = Colors.black,
+  FontWeight fontWeight = FontWeight.normal,
+}) {
+  return TextStyle(
+    fontSize: 16,
+    fontFamily: fontFamily,
+    fontWeight: fontWeight,
+    color: textColor,
+  );
+}
+
 /// size 18
 TextStyle myTextStyle18({
   String fontFamily = "primary",

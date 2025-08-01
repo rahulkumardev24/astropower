@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_astro/screen/call_screen.dart';
 import 'package:my_astro/screen/chat_screen.dart';
 import 'package:my_astro/screen/home_screen.dart';
 import 'package:my_astro/screen/remedies/remedies_screen.dart';
@@ -13,13 +14,13 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  int _currentIndex = 0;
+  int _currentIndex = 3;
 
   List<Widget> screen = [
     HomeScreen(),
     ChatScreen(),
     ChatScreen(),
-    ChatScreen(),
+    CallScreen(),
     RemediesScreen(),
   ];
 

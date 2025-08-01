@@ -3,7 +3,7 @@ import 'package:my_astro/screen/remedies/murti_screen.dart';
 import 'package:my_astro/screen/remedies/vip_e_pooja_screen.dart';
 import 'package:my_astro/widgets/app_drawer.dart';
 import '../../constant/app_constant.dart';
-import '../../widgets/remedies_carousel_slider.dart';
+import '../../widgets/poster_carousel_slider.dart';
 
 class RemediesScreen extends StatefulWidget {
   const RemediesScreen({super.key});
@@ -32,7 +32,25 @@ class _RemediesScreenState extends State<RemediesScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const RemediesCarouselSlider(),
+              PosterCarouselSlider(
+                imagePaths: [
+                  "lib/assets/banner/remedies_banner_1.jpg",
+                  "lib/assets/banner/remedies_banner_2.jpg",
+                  "lib/assets/banner/remedies_banner_3.jpg",
+                ],
+                onPressActions: [
+                      () {
+                    print("First poster tapped");
+                  },
+                      () {
+                    print("Second poster tapped");
+                  },
+                      () {
+                    print("Third poster tapped");
+                  },
+                ],
+              ),
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GridView.builder(

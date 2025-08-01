@@ -67,6 +67,94 @@ class AppConstant {
     },
   ];
 
+
+  static List<Map<String, dynamic>> callData = [
+    {
+      "image": "lib/assets/image/ast2.jpg",
+      "newPrice" : "10" ,
+      "oldPrice" : "20/min",
+      "orders": "1.8k",
+      "name": "Priya",
+      "language": "Hindi",
+      "onlineStatus" : true
+    },
+    {
+      "image": "lib/assets/image/ast3.jpg",
+      "newPrice" : "Free" ,
+      "oldPrice": "30/min",
+      "orders": "1.5k",
+      "name": "Sonam Kumari",
+      "language": "English",
+      "onlineStatus" : true
+    },
+    {
+      "image": "lib/assets/image/ast4.jpg",
+      "newPrice" : "5" ,
+      "oldPrice": "25/min",
+      "orders": "2.8k",
+      "name": "Pooja",
+      "language": "Bengali",
+      "onlineStatus" : false
+    },
+    {
+      "image": "lib/assets/image/ast2.jpg",
+      "newPrice" : "8" ,
+      "oldPrice": "20/min",
+      "orders": "1.4k",
+      "name": "Priya",
+      "language": "Hindi",
+      "onlineStatus" : true
+
+    },
+    {
+      "image": "lib/assets/image/ast3.jpg",
+      "newPrice" : "5" ,
+      "oldPrice": "30/min",
+      "orders": "3.0k",
+      "name": "Sonam Kumari",
+      "language": "English",
+      "onlineStatus" : true
+    },
+    {
+      "image": "lib/assets/image/ast4.jpg",
+      "newPrice" : "12" ,
+      "oldPrice": "25/min",
+      "orders": "1.0k",
+      "name": "Pooja",
+      "language": "Bengali",
+      "onlineStatus" : true
+    },
+    {
+      "image": "lib/assets/image/ast2.jpg",
+      "newPrice" : "5" ,
+      "oldPrice": "20/min",
+      "orders": "1.1k",
+      "name": "Priya",
+      "language": "Hindi",
+      "onlineStatus" : false
+    },
+    {
+      "image": "lib/assets/image/ast3.jpg",
+      "newPrice" : "5" ,
+      "oldPrice": "30/min",
+      "orders": "1.2k",
+      "name": "Sonam Kumari",
+      "language": "English",
+      "onlineStatus" : true
+    },
+    {
+      "image": "lib/assets/image/ast4.jpg",
+      "newPrice" : "Free" ,
+      "oldPrice": "25/min",
+      "orders": "2.0k",
+      "name": "Pooja",
+      "language": "Bengali",
+      "onlineStatus" : true
+    },
+  ];
+
+
+
   static List<Map<String, dynamic>> tabData = [
     {"icon": Icons.all_out_rounded, "iconColor": Colors.yellow, "title": "All"},
 
@@ -75,12 +163,6 @@ class AppConstant {
       "iconColor": Colors.red,
       "title": "Love",
     },
-    {
-      "icon": Icons.local_offer_outlined,
-      "iconColor": Colors.greenAccent,
-      "title": "Offer",
-    },
-
     {
       "icon": Icons.collections_bookmark_rounded,
       "iconColor": Colors.pinkAccent,

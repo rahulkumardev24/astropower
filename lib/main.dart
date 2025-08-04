@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_astro/screen/astrologer_profile_screen.dart';
 import 'package:my_astro/screen/dashboard_screen.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Fact fuel',
         debugShowCheckedModeBanner: false,
-        home: DashboardScreen(),
+        home: AstrologerProfileScreen(),
       ),
     );
   }

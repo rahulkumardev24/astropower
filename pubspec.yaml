@@ -43,6 +43,7 @@ dependencies:
   lottie: ^3.3.1
   font_awesome_flutter: ^10.8.0
   flutter_advanced_switch: ^3.1.0
+  expandable_text: ^2.3.0
 
 dev_dependencies:
   flutter_test:

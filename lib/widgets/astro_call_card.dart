@@ -52,7 +52,7 @@ class _AstroChatCardState extends State<AstroCallCard> {
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 2,
-                              color: Color(0xfff0df1f),
+                              color: Colors.pinkAccent,
                             ),
                             image: DecorationImage(
                               image: AssetImage(widget.image),
@@ -77,7 +77,7 @@ class _AstroChatCardState extends State<AstroCallCard> {
                               ),
                               color:
                                   widget.onlineStatus
-                                      ? Colors.green
+                                      ? Color(0xff268e5f)
                                       : Colors.grey,
                               shape: BoxShape.circle,
                             ),
@@ -85,7 +85,7 @@ class _AstroChatCardState extends State<AstroCallCard> {
                         ),
                       ],
                     ),
-                    SizedBox(height: size.height * 0.01,),
+                    SizedBox(height: size.height * 0.01),
 
                     /// rating star
                     Row(
@@ -150,7 +150,7 @@ class _AstroChatCardState extends State<AstroCallCard> {
                             ),
                           ],
                         ),
-                        SizedBox(height: size.height * 0.01,),
+                        SizedBox(height: size.height * 0.01),
 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -163,14 +163,14 @@ class _AstroChatCardState extends State<AstroCallCard> {
                                     : Icon(
                                       FontAwesomeIcons.indianRupeeSign,
                                       size: 18,
-                                      color: Colors.green,
+                                    color:  Color(0xff268e5f)
                                     ),
 
                                 /// new price
                                 Text(
                                   widget.newPrice,
                                   style: myTextStyle18(
-                                    textColor: Colors.green,
+                                    textColor: Color(0xff268e5f),
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -200,13 +200,13 @@ class _AstroChatCardState extends State<AstroCallCard> {
                                   elevation: 0,
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(6),
+                                    borderRadius: BorderRadius.circular(12),
                                   ),
                                   side: BorderSide(
-                                    width: 1.5,
+                                    width: 2,
                                     color:
                                         widget.onlineStatus
-                                            ? Colors.green.shade700
+                                            ? Color(0xff268e5f)
                                             : Colors.grey.shade500,
                                   ),
                                 ),
@@ -220,7 +220,7 @@ class _AstroChatCardState extends State<AstroCallCard> {
                                       fontWeight: FontWeight.w200,
                                       textColor:
                                           widget.onlineStatus
-                                              ? Colors.green.shade700
+                                              ? Color(0xff268e5f)
                                               : Colors.grey.shade500,
                                     ),
                                   ),

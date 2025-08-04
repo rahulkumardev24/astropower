@@ -22,52 +22,48 @@ class _AstroChatCardState extends State<RecommendedCallCard> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2),
+      padding: const EdgeInsets.only(left:  6),
       child: Card(
         color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              /// profile part
-
+              /// profile
               Container(
-                height: mqData.height * 0.1,
-                width: mqData.height * 0.1,
+                height: mqData.height * 0.12,
+                width: mqData.height * 0.12,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(
-                    width: 2,
-                    color: Color(0xfff0df1f),
-                  ),
+                  border: Border.all(width: 2, color: Colors.grey.shade400),
                   image: DecorationImage(
                     image: AssetImage(widget.image),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
+              SizedBox(height: 8),
 
+              /// name
               Row(
                 children: [
-
-                  Icon(Icons.verified),
+                  Icon(Icons.verified , color: Color(0xff268e5f)),
 
                   Text(
                     widget.name,
                     style: myTextStyle18(fontWeight: FontWeight.w300),
                   ),
                 ],
-              ) ,
+              ),
+              SizedBox(height: 8),
+
               /// rating star
               Row(
                 children: [
                   Row(
                     children: [
-                      Icon(
-                        Icons.star,
-                        color: Colors.yellow.shade700,
-                        size: 21,
-                      ),
+                      Icon(Icons.star, color: Colors.grey.shade600, size: 21),
                       Text(
                         "4.5",
                         style: myTextStyle18(
@@ -78,55 +74,43 @@ class _AstroChatCardState extends State<RecommendedCallCard> {
                     ],
                   ),
 
+                  SizedBox(height: 18, child: VerticalDivider(thickness: 2)),
+
                   Text(
                     "8 Years exp.",
-                    style: myTextStyle15(
-                      textColor: Colors.grey.shade600,
-                    ),
+                    style: myTextStyle15(textColor: Colors.grey.shade600),
                   ),
-
                 ],
               ),
-
+              SizedBox(height: 8),
               /// new price
               Text(
-                widget.newPrice,
-                style: myTextStyle18(
-                  textColor: Colors.green,
+                "${widget.newPrice}/min",
+                style: myTextStyle16(
+                  textColor: Color(0xff268e5f),
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
+              SizedBox(height: 8),
 
               /// chat button
-              Padding(
-                padding: const EdgeInsets.only(right: 16.0),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    side: BorderSide(
-                      width: 1.5,
-                      color: Colors.green.shade700
-
-                    ),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  backgroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 6.0,
-                    ),
-                    child: Text(
-                      "Call",
-                      style: myTextStyle18(
-                        fontWeight: FontWeight.w200,
-                        textColor:
-                         Colors.green.shade700
-
-                      ),
+                  side: BorderSide(width: 2, color: Color(0xff268e5f)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(
+                    "Call",
+                    style: myTextStyle18(
+                      fontWeight: FontWeight.w200,
+                      textColor: Color(0xff268e5f),
                     ),
                   ),
                 ),

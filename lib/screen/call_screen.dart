@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_astro/helper/custom_text_style.dart';
+import 'package:my_astro/screen/astrologer_profile_screen.dart';
 import 'package:my_astro/screen/payment/add_money_screen.dart';
 import 'package:my_astro/screen/payment/select_payment_method_screen.dart';
 import '../constant/app_constant.dart';
@@ -161,6 +162,23 @@ class _CallScreenState extends State<CallScreen> {
                     orders: data["orders"],
                     onlineStatus: data["onlineStatus"] ?? false,
                     newPrice: data["newPrice"],
+
+                    /// here we navigate to profile screen
+                    onPress:
+                        () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (_) => AstrologerProfileScreen(
+                                  imagePath: data['image'],
+                                  name: data['name'],
+                                  language: "Hindi , English",
+                                  experience: "Exp : 8 Years",
+                                  specialist: "Tarot , Life Coach",
+                                  price: data["newPrice"],
+                                ),
+                          ),
+                        ),
                   );
                 },
               ),
@@ -200,6 +218,23 @@ class _CallScreenState extends State<CallScreen> {
                       image: data['image'],
                       name: data['name'],
                       newPrice: data["newPrice"],
+
+                      /// here we navigate to profile screen
+                      onPress:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (_) => AstrologerProfileScreen(
+                                    imagePath: data['image'],
+                                    name: data['name'],
+                                    language: "Hindi , English",
+                                    experience: "Exp : 8 Years",
+                                    specialist: "Tarot , Life Coach",
+                                    price: data["newPrice"],
+                                  ),
+                            ),
+                          ),
                     );
                   },
                 ),

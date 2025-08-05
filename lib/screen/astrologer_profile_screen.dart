@@ -4,11 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_astro/constant/app_constant.dart';
 import 'package:my_astro/helper/custom_text_style.dart';
-
 import '../widgets/review_card.dart';
 
 class AstrologerProfileScreen extends StatefulWidget {
-  const AstrologerProfileScreen({super.key});
+  final String imagePath;
+  final String name;
+  final String language;
+  final String experience;
+  final String specialist;
+  final String price;
+  const AstrologerProfileScreen({
+    super.key,
+    required this.imagePath,
+    required this.name,
+    required this.language,
+    required this.experience,
+    required this.specialist,
+    required this.price,
+  });
 
   @override
   State<AstrologerProfileScreen> createState() =>
@@ -75,7 +88,15 @@ class _AstrologerProfileScreenState extends State<AstrologerProfileScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   /// profile sections
-                  _userCard(size: size),
+                  _userCard(
+                    size: size,
+                    imagePath: widget.imagePath,
+                    name: widget.name,
+                    specialist: widget.specialist,
+                    language: widget.language,
+                    experience: widget.experience,
+                    price: widget.price,
+                  ),
                   SizedBox(height: 16),
                   _expendableText(context: context, message: message),
                   SizedBox(height: 16),
@@ -131,6 +152,72 @@ class _AstrologerProfileScreenState extends State<AstrologerProfileScreen> {
                   ),
                   _callCard(title: "Video Call", icon: CupertinoIcons.videocam),
                   SizedBox(height: 12),
+
+                  /// send gift section
+                  Card(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        SizedBox(height: 12),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    CupertinoIcons.gift,
+                                    color: Colors.grey.shade500,
+                                  ),
+                                  SizedBox(width: 8),
+                                  Text(
+                                    "Gift to Assistant",
+                                    style: myTextStyle18(
+                                      textColor: Colors.grey.shade900,
+                                    ),
+                                  ),
+                                  SizedBox(width: 8),
+                                  Icon(
+                                    Icons.info_outline_rounded,
+                                    color: Colors.grey.shade500,
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Icon(Icons.currency_rupee_rounded, size: 18),
+                                  Text("14", style: myTextStyle18()),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 12),
+                        SizedBox(
+                          height: size.height * 0.35,
+                          child: GridView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: AppConstant.gift.length,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 4,
+                                ),
+                            itemBuilder: (context, index) {
+                              final giftData = AppConstant.gift[index];
+                              return _giftCard(
+                                title: giftData['giftName'],
+                                imagePath: giftData['imagePath'],
+                                price: giftData['price'],
+                                size: size,
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -216,7 +303,15 @@ class _AstrologerProfileScreenState extends State<AstrologerProfileScreen> {
   }
 
   /// widgets
-  Widget _userCard({required Size size}) {
+  Widget _userCard({
+    required Size size,
+    required String imagePath,
+    required String name,
+    required String specialist,
+    required String language,
+    required String experience,
+    required String price,
+  }) {
     return Card(
       color: Colors.white,
       shadowColor: Colors.black87,
@@ -237,7 +332,7 @@ class _AstrologerProfileScreenState extends State<AstrologerProfileScreen> {
                         shape: BoxShape.circle,
                         border: Border.all(width: 2, color: Colors.pinkAccent),
                         image: DecorationImage(
-                          image: AssetImage("lib/assets/image/ast2.jpg"),
+                          image: AssetImage(imagePath),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -278,7 +373,8 @@ class _AstrologerProfileScreenState extends State<AstrologerProfileScreen> {
                         children: [
                           Row(
                             children: [
-                              Text("Priya", style: myTextStyle18()),
+                              /// name
+                              Text(name, style: myTextStyle16()),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 8.0,
@@ -315,19 +411,19 @@ class _AstrologerProfileScreenState extends State<AstrologerProfileScreen> {
                         ],
                       ),
                       Text(
-                        "Vedic,Numerology, Vastu,Life Coach",
+                        specialist,
                         style: myTextStyle12(textColor: Colors.grey.shade600),
                       ),
 
                       /// language
                       Text(
-                        "Hindi , English",
+                        language,
                         style: myTextStyle14(textColor: Colors.grey.shade600),
                       ),
 
                       /// exp
                       Text(
-                        "Exp: 5 Years",
+                        experience,
                         style: myTextStyle12(textColor: Colors.grey.shade600),
                       ),
 
@@ -342,7 +438,7 @@ class _AstrologerProfileScreenState extends State<AstrologerProfileScreen> {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "24",
+                                  text: price,
                                   style: myTextStyle14(
                                     fontWeight: FontWeight.bold,
                                     textColor: Colors.grey.shade700,
@@ -507,109 +603,229 @@ class _AstrologerProfileScreenState extends State<AstrologerProfileScreen> {
         return SizedBox(
           height: size.height * 0.8,
 
-          child: Column(
-            children: [
-              SizedBox(height: 21),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: 21),
 
-              /// navigation section
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Icon(Icons.arrow_back_rounded),
-                        ),
-                        SizedBox(width: 8),
-                        Text(
-                          "Rating and Reviews",
-                          style: myTextStyle16(textColor: Colors.grey.shade800),
+                  /// navigation section
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(Icons.arrow_back_rounded),
+                          ),
+                          SizedBox(width: 8),
+                          Text(
+                            "Rating and Reviews",
+                            style: myTextStyle16(
+                              textColor: Colors.grey.shade800,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "Most helpful",
+                            style: myTextStyle14(
+                              textColor: Colors.grey.shade700,
+                            ),
+                          ),
+                          SizedBox(width: 8),
+                          Icon(Icons.sort_rounded),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 21),
+
+                  /// Rating sections
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(width: 1, color: Colors.black26),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 1,
+                          spreadRadius: 1,
+                          offset: Offset(1.0, 1.0),
                         ),
                       ],
                     ),
-                    Row(
+
+                    child: Row(
                       children: [
-                        Text(
-                          "Most helpful",
-                          style: myTextStyle14(textColor: Colors.grey.shade700),
+                        /// left part -> star, orders
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "4.85",
+                                style: myTextStyle36(
+                                  fontWeight: FontWeight.w100,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+
+                              /// star
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: List.generate(
+                                  5,
+                                  (i) => Icon(
+                                    Icons.star,
+                                    size: 18,
+                                    color: Colors.grey.shade600,
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.person,
+                                    size: 16,
+                                    color: Colors.grey.shade600,
+                                  ),
+                                  Text("7604 orders", style: myTextStyle14()),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                        SizedBox(width: 8),
-                        Icon(Icons.sort_rounded),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
 
-              /// Rating sections
-              Card(
-                color: Colors.white,
-                child: Row(
-                  children: [
-                    Column(
-                      children: [
-                        Text("4.85", style: myTextStyle32()),
+                        /// Right -> review
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12.0,
+                              vertical: 4,
+                            ),
+                            child: Column(
+                              children: List.generate(5, (index) {
+                                int star = 5 - index;
 
-                        /// star
-                        Row(
-                          children: List.generate(
-                            5,
-                            (i) => Icon(
-                              Icons.star,
-                              size: 16,
-                              color: Colors.grey.shade600,
+                                /// Custom progress values for 5, 4, 3, 2, 1 stars
+                                final List<double> starProgress = [
+                                  0.8,
+                                  0.5,
+                                  0.3,
+                                  0.1,
+                                  0.25,
+                                ];
+
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 2,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Text(
+                                          star.toString(),
+                                          style: myTextStyle18(
+                                            fontWeight: FontWeight.bold,
+                                            textColor: Colors.grey.shade700,
+                                          ),
+                                        ),
+                                      ),
+
+                                      Expanded(
+                                        flex: 6,
+                                        child: LinearProgressIndicator(
+                                          value: starProgress[index],
+                                          minHeight: 12,
+                                          borderRadius: BorderRadius.circular(
+                                            21,
+                                          ),
+                                          backgroundColor: Colors.grey.shade300,
+                                          color:
+                                              star == 5
+                                                  ? Colors.greenAccent.shade400
+                                                  : star == 4
+                                                  ? Colors.blue
+                                                  : star == 3
+                                                  ? Colors.amber
+                                                  : star == 2
+                                                  ? Colors.orange
+                                                  : Colors.red,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }),
                             ),
                           ),
                         ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.person,
-                              size: 14,
-                              color: Colors.grey.shade600,
-                            ),
-                            Text("7604 orders", style: myTextStyle12()),
-                          ],
-                        ),
                       ],
                     ),
+                  ),
 
-                    Expanded(
-                      child: Column(
-                        children: List.generate(5, (index) {
-                          int star = 5 - index;
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 2),
-                            child: Row(
-                              children: [
-                                Text(star.toString()),
-                                const SizedBox(width: 6),
-                                Expanded(
-                                  child: LinearProgressIndicator(
-                                    value: star == 5 ? 0.9 : 0.05,
-                                    backgroundColor: Colors.grey.shade300,
-                                    color:
-                                        star == 5 ? Colors.green : Colors.grey,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        }),
-                      ),
-                    ),
-                  ],
-                ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: AppConstant.reviewData.length,
+                    itemBuilder: (context, index) {
+                      final revData = AppConstant.reviewData[index];
+                      return ReviewCard(
+                        name: revData['name'],
+                        review: revData['review'],
+                        reply: revData['reply'],
+                        rating: revData['rating'],
+                      );
+                    },
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         );
       },
+    );
+  }
+
+  Widget _giftCard({
+    required String title,
+    required String imagePath,
+    required String price,
+    required Size size,
+  }) {
+    return SizedBox(
+      height: 100,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(
+            imagePath,
+            height: size.width * 0.08,
+            width: size.width * 0.08,
+            fit: BoxFit.cover,
+          ),
+          Text(title, style: myTextStyle14(textColor: Colors.grey.shade600)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.currency_rupee_rounded, size: 16),
+              Text(price, style: myTextStyle14(fontWeight: FontWeight.w100)),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

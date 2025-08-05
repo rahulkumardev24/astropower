@@ -524,4 +524,61 @@ class AppConstant {
       "rating": 5,
     },
   ];
+
+  static final List<Map<String, dynamic>> gift = [
+    {
+      "imagePath" : "lib/assets/icon/flower.png" ,
+      "giftName" : "Flowers" ,
+      "price" : "15"
+    } ,
+    {
+      "imagePath" : "lib/assets/icon/pooja.png" ,
+      "giftName" : "Pooja Thali" ,
+      "price" : "21"
+    } ,
+    {
+      "imagePath" : "lib/assets/icon/heart (5).png" ,
+      "giftName" : "Heart" ,
+      "price" : "21"
+    } ,
+    {
+      "imagePath" : "lib/assets/icon/chocolate-bar.png" ,
+      "giftName" : "Chocolates" ,
+      "price" : "51"
+    } ,
+    {
+      "imagePath" : "lib/assets/icon/laddu.png" ,
+      "giftName" : "Sweets" ,
+      "price" : "101"
+    } ,
+    {
+      "imagePath" : "lib/assets/icon/magician.png" ,
+      "giftName" : "Magician" ,
+      "price" : "101"
+    } ,
+    {
+      "imagePath" : "lib/assets/icon/lord-shiva-61-1-258x300.png" ,
+      "giftName" : "Shivling" ,
+      "price" : "251"
+    } ,
+
+    {
+      "imagePath" : "lib/assets/icon/crown.png" ,
+      "giftName" : "Crown" ,
+      "price" : "501"
+    } ,
+
+    {
+      "imagePath" : "lib/assets/icon/money-bag.png" ,
+      "giftName" : "Dakshina" ,
+      "price" : "2100"
+    } ,
+
+    {
+      "imagePath" : "lib/assets/icon/hindu.png" ,
+      "giftName" : "Ganesha" ,
+      "price" : "2100"
+    } ,
+
+  ] ;
 }

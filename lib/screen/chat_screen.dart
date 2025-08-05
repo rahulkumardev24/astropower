@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_astro/constant/app_constant.dart';
+import 'package:my_astro/screen/astrologer_profile_screen.dart';
 import 'package:my_astro/widgets/carousel_slider.dart';
 import '../widgets/astro_chat_card.dart';
 import '../widgets/sort_filter_bottom_sheet.dart';
@@ -89,6 +90,23 @@ class _ChatScreenState extends State<ChatScreen> {
                     oldPrice: data['oldPrice'],
                     orders: data["orders"],
                     language: data["language"],
+
+                    ///
+                    onPress:
+                        () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (_) => AstrologerProfileScreen(
+                                  imagePath: data['image'],
+                                  name: data['name'],
+                                  language: data["language"],
+                                  experience: "Exp- 3 Year ",
+                                  specialist: "Tarot,Life Coach",
+                                  price: data['oldPrice'],
+                                ),
+                          ),
+                        ),
                   );
                 },
               ),
